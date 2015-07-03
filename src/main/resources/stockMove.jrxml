@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="stockMove" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d83fc127-6194-4a27-9ea3-875729ed00d3">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="@StockTransferID" class="java.lang.String"/>
+	<queryString language="hql">
+		<![CDATA[from StockTransfer where transferID = $P{@StockTransferID}]]>
+	</queryString>
+	<field name="description" class="java.lang.String"/>
+	<field name="expectedDate" class="java.util.Date"/>
+	<field name="fromStock" class="com.j2ee.java.model.dto.Stock"/>
+	<field name="priority" class="java.lang.Integer"/>
+	<field name="productID" class="com.j2ee.java.model.dto.Product"/>
+	<field name="quantity" class="java.lang.Integer"/>
+	<field name="staffID" class="com.j2ee.java.model.dto.Staff"/>
+	<field name="statusID" class="java.lang.Integer"/>
+	<field name="toStock" class="com.j2ee.java.model.dto.Stock"/>
+	<field name="totalNumber" class="java.lang.Integer"/>
+	<field name="transferID" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="42" y="2" width="474" height="28" forecolor="#0033CC" uuid="27d99f6c-e75f-4adc-8ba4-7f7d39e24fda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECEIPT STOCK MOVE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="369" splitType="Stretch">
+			<line>
+				<reportElement x="91" y="10" width="380" height="1" uuid="339c23b9-d745-40e5-a1f3-1aa30126c8a1"/>
+			</line>
+			<staticText>
+				<reportElement x="378" y="26" width="35" height="20" uuid="fde4399f-a846-4168-b08f-64234ca7547e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ Date:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="416" y="26" width="100" height="20" forecolor="#0033CC" uuid="07bfdd07-ad2e-4c68-92af-681b6620e96e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="141" width="121" height="20" uuid="93abe82b-e757-416c-ac07-c0b0e7ba244d"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Destination Location:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="164" y="111" width="121" height="20" uuid="67da2c52-e07c-4672-ae12-8a796ae3fce3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="296" y="111" width="121" height="20" uuid="7713b7e6-3fa6-4ed9-8ca5-2990cd4f30fa"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Priority:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="82" width="101" height="20" uuid="60d6aa60-3d6c-4bf3-9706-90e8868d6173"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Product:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="164" y="82" width="121" height="20" uuid="6e226fb0-eb46-469d-96ab-20dbf85f81d4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{productID}.getProductName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="176" width="343" height="50" uuid="bca3ff89-e1db-45f4-9c35-f42d4fa1bf23"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="111" width="101" height="20" uuid="44fe345b-c6b4-40df-a8a0-6246a9ecce35"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Quantity:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="423" y="111" width="85" height="20" uuid="bbf22f62-605a-4825-bec1-b9347e6a194c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{priority}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="176" width="101" height="20" uuid="7205364f-6442-480e-aaac-8e388fdc8d19"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Note:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="165" y="141" width="120" height="20" uuid="9ccaa572-61cf-43ae-9738-b7db3fb300ac"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fromStock}.getStockName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="141" width="85" height="20" uuid="61507bf9-c0d5-4cda-b004-09a6a1cc3735"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{toStock}.getStockName()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="54" y="141" width="101" height="20" uuid="785b93b3-22b0-4fdf-a98f-ff143c196550"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Source Location:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="82" width="121" height="20" uuid="c47c5e57-cc08-4eef-9891-ce607fbe6af5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Expected Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="423" y="82" width="85" height="20" uuid="b7500837-a611-44fe-bdbe-5d0702c567e4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{expectedDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="407" y="322" width="100" height="20" uuid="67be7ace-f432-4d70-8fc1-93fe7ec0a555"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{staffID}.getStaffName()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="414" y="273" width="82" height="20" uuid="da9a4bb2-31c8-4210-98f1-d783bdb763ed"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Staff]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="151" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

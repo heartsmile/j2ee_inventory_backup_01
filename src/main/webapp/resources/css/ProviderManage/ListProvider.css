@@ -1,0 +1,5 @@
+@CHARSET "ISO-8859-1";
+
+table > tbody > .selected {
+	background-color:#b0bed9 !important;
+}

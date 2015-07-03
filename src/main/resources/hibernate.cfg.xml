@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/inventory_erp?useUnicode=yes&amp;characterEncoding=UTF-8</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">anhquan</property>
+        
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+ 
+		<mapping class="com.j2ee.java.model.dto.Adjustment"/>
+		<mapping class="com.j2ee.java.model.dto.Asset"/>
+		<mapping class="com.j2ee.java.model.dto.AssetAdjustment"/>
+		<mapping class="com.j2ee.java.model.dto.AssetLiquidation"/>
+		<mapping class="com.j2ee.java.model.dto.AssetLiquidationDetail"/>
+		<mapping class="com.j2ee.java.model.dto.AssetReport"/>
+		<mapping class="com.j2ee.java.model.dto.AssetReportDetail"/>
+		<mapping class="com.j2ee.java.model.dto.Contract"/>
+		<mapping class="com.j2ee.java.model.dto.Customer"/>
+		<mapping class="com.j2ee.java.model.dto.InventoryReport"/>
+		<mapping class="com.j2ee.java.model.dto.InventoryReportDetail"/>
+		<mapping class="com.j2ee.java.model.dto.Manufacture"/>
+		<mapping class="com.j2ee.java.model.dto.Product"/>
+		<mapping class="com.j2ee.java.model.dto.ProductComponent"/>
+		<mapping class="com.j2ee.java.model.dto.ProductGroup"/>
+		<mapping class="com.j2ee.java.model.dto.ProductType"/>
+		<mapping class="com.j2ee.java.model.dto.ProductUnit"/>
+		<mapping class="com.j2ee.java.model.dto.Provider"/>
+		<mapping class="com.j2ee.java.model.dto.RegulationInventory"/>
+		<mapping class="com.j2ee.java.model.dto.Staff"/>
+		<mapping class="com.j2ee.java.model.dto.Stock"/>
+		<mapping class="com.j2ee.java.model.dto.StockBuild"/>
+		<mapping class="com.j2ee.java.model.dto.StockBuildDetail"/>
+		<mapping class="com.j2ee.java.model.dto.StockInventory"/>
+		<mapping class="com.j2ee.java.model.dto.StockInward"/>
+		<mapping class="com.j2ee.java.model.dto.StockInwardDetail"/>
+		<mapping class="com.j2ee.java.model.dto.StockOutward"/>
+		<mapping class="com.j2ee.java.model.dto.StockOutwardDetail"/>
+		<mapping class="com.j2ee.java.model.dto.StockTransfer"/>
+		 		 
+    </session-factory>
+</hibernate-configuration>

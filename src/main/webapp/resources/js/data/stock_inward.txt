@@ -1,0 +1,40 @@
+{
+  "aaData": [
+	    {
+		  "code": "00001",
+		  "name": "USB 2G",
+		  "stock": "Kho 1",
+		  "unit": "cái",
+		  "amount": "1",
+		  "price": "1000",
+		  "money": "1000"
+		},
+		{
+		  "code": "00002",
+		  "name": "CPU",
+		  "stock": "Kho 1",
+		  "unit": "cái",
+		  "amount": "1",
+		  "price": "1000",
+		  "money": "1000"
+		},
+		{
+		  "code": "00003",
+		  "name": "USB 3G",
+		  "stock": "Kho 2",
+		  "unit": "cái",
+		  "amount": "1",
+		  "price": "1000",
+		  "money": "1000"
+		},
+		{
+		  "code": "00004",
+		  "name": "USB 3G",
+		  "stock": "Kho 1",
+		  "unit": "cái",
+		  "amount": "1",
+		  "price": "1000",
+		  "money": "1000"
+		}
+  ]
+}

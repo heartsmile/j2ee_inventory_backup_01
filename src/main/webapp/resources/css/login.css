@@ -1,0 +1,11 @@
+.login-center {
+	margin-top: 200px !important;
+}
+
+.login-center .field {
+	padding-top: 50px !important;
+	padding-left: 30px !important;
+	padding-right: 50px !important;
+	background-color: inherit;
+	border-left-color: inherit;
+}

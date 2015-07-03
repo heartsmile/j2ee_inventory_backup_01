@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+#table-stock-move {
+	margin-top: 20px;
+}
+
+.page-header {
+	margin: 0px 0px 20px;
+}
+
+/* body {
+	margin:0;
+	font-family:Sitka Heading !important;
+	color:rgb(30,30,30);
+	font-size:15px;
+} */
+
+.waiting {
+	width: 150px;
+}
