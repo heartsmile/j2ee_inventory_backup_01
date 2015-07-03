@@ -30,6 +30,7 @@ import com.j2ee.java.model.bo.ProductBO;
 import com.j2ee.java.model.bo.ProviderBO;
 import com.j2ee.java.model.bo.StockBO;
 import com.j2ee.java.model.bo.StockInwardBO;
+import com.j2ee.java.model.bo.Utils;
 import com.j2ee.java.model.dto.Product;
 import com.j2ee.java.model.dto.Provider;
 import com.j2ee.java.model.dto.Stock;
@@ -142,7 +143,7 @@ public class StockInwardController {
 	}
 	
 	@RequestMapping(value = "/exportInward")
-	public ModelAndView exportProduct(HttpServletRequest request,
+	public ModelAndView exportInward(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		String reportIDReq = request.getParameter("currentInwardID");
@@ -151,8 +152,8 @@ public class StockInwardController {
 			reportID = Integer.parseInt(reportIDReq);
 		}
 
-		final String fileName = "E:\\stockInward.pdf";
-		final String reportPath = "E:\\j2ee_backUp_001\\src\\main\\resources\\stockInWard.jrxml";
+		final String fileName = Utils.LINK_REPORT_OUTPUT + "StockInwardBill.pdf";
+		final String reportPath = Utils.LINK_REPORT_RESOURCE + "stockInWard.jrxml";
 		try {
 			if (reportID > 0) {
 				stInReportBO.runReport(reportPath, fileName, reportID);

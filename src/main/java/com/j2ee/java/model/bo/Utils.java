@@ -17,4 +17,8 @@ public class Utils {
 			"MM/dd/yyyy");
 	public static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(
 			"yyyy-MM-dd");
+	
+	public static final String LINK_REPORT_RESOURCE = "E:\\j2ee_backup_01\\trunk\\src\\main\\resources\\";
+	
+	public static final String LINK_REPORT_OUTPUT = "E:\\";
 }

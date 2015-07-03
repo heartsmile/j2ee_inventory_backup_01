@@ -8,7 +8,6 @@
 		<div class="col-lg-12">
 			<form action="NewStockMoveBill" method="post">
 				<button class="btn btn-success" type="submit">Create New</button>
-				<a class="btn btn-primary" id="btnExportAllBill">Export</a>
 			</form>
 		</div>
 	</div>

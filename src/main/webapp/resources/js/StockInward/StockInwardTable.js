@@ -2,7 +2,13 @@
  * @author: thaint
  */
 
+var currentInwardID;
+
 $(document).ready(function() {
+	
+	//get current stock inward id
+	currentInwardID = $("#billNo").val();
+	
 	var i = $('#tbData tr').length;
 	calculateTotal();
 	//deletes the selected table rows
@@ -11,6 +17,13 @@ $(document).ready(function() {
 		$('.case:checkbox:checked').parents("tr").remove();
 		$('#check_all').prop("checked", false); 
 		calculateTotal();
+	});
+	
+	//disable btn export
+	$("#exportInward").prop("disabled", true);
+	
+	$("#exportInward").click(function(){
+		window.location = "exportInward?currentInwardID=" + currentInwardID;
 	});
 
 	////to check all checkboxes
@@ -187,9 +200,14 @@ $(document).ready(function() {
 							dialog.realize();
 							var btnOk = dialog.getButton('btn-ok');
 							btnOk.click(function(event){
-								location.reload(true);
+								//location.reload(true);
+								dialog.close();
+								//disable btn export
+								$("#exportInward").prop("disabled", false);
 					        });
 							dialog.open();
+							//disable btn export
+							$("#exportInward").prop("disabled", false);
 						}
 						else {
 							var dialogError = new BootstrapDialog({

@@ -8,7 +8,6 @@
 	<form class="form-inline">
 		<div class="row">
 			<button id="exportData" class="btn btn-primary" type="button">Export Data</button>
-			<button id="printData" class="btn btn-default" type="button">Print</button>
 		</div>
 		
 		<div class="row" style="margin-top: 15px">

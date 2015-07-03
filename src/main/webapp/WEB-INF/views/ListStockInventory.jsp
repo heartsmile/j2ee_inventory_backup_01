@@ -7,7 +7,7 @@
 
 <meta charset="utf-8">
 
-<title>Stock Inventory</title>
+<title>Inventory Stock Status</title>
 
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet"

@@ -1,7 +1,5 @@
 package com.j2ee.java.report;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,12 +18,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-
-import com.j2ee.java.model.bo.StockInwardBO;
 import com.j2ee.java.model.bo.StockTransferBO;
 import com.j2ee.java.model.dao.HibernateUtil;
-import com.j2ee.java.model.dto.StockInward;
-import com.j2ee.java.model.dto.StockTransfer;
 
 @Component
 public class StockTransferReportBO {
@@ -35,9 +29,6 @@ public class StockTransferReportBO {
 	private StockTransferBO stockTransferBO;
 	
 	private Map<String, Object> params = new HashMap<String, Object>();
-	private Date date = new Date();
-	private SimpleDateFormat dateFormat = new SimpleDateFormat(
-			"dd-MM-YY:HH.mm.ss");
 	static SessionFactory session = HibernateUtil.getSessionFactory();
 
 	public Session getOpenSession() {
@@ -47,28 +38,18 @@ public class StockTransferReportBO {
 
 	public void runReport(String path, String fileName, int reportID) {// GEN-FIRST:event_jxBtnReviewActionPerformed
 		
-		
-		StockTransfer stockTransfer = new StockTransfer();
-		stockTransfer = stockTransferBO.getByID(reportID);
-		
 		Session s = this.getOpenSession();
 		params.put(JRHibernateQueryExecuterFactory.PARAMETER_HIBERNATE_SESSION,
 				s);
-		params.put("@productID", stockTransfer.getProductID().getProductName());
-		//params.put("@expectedDate", stockTransfer.getExpectedDate()); 
-		params.put("@quantity", stockTransfer.getQuantity());
-		params.put("@priority", stockTransferBO.getPriorityString(stockTransfer.getPriority()));
-		params.put("@fromStock", stockTransfer.getFromStock().getStockName());
-		params.put("@toStock", stockTransfer.getToStock().getStockName());
-		params.put("@description", stockTransfer.getDescription());
-		params.put("@staffID", stockTransfer.getStaffID().getStaffName());
+		
+		params.put("@StockTransferID", String.valueOf(reportID));
+		
 		String filePath = fileName;
 		try {
 
 			JasperReport reportFile = JasperCompileManager.compileReport(path);
 			JasperPrint jPrint = JasperFillManager.fillReport(reportFile,
 					params);
-			//JasperViewer.viewReport(jPrint, false);
 			JasperExportManager.exportReportToPdfFile(jPrint, filePath);
 
 		} catch (JRException ex) {

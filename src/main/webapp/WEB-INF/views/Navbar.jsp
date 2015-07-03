@@ -55,7 +55,7 @@
 							<li><a href="StockInward">Stock Inward</a></li>
 							<li><a href="StockOutward">Stock Outward</a></li>
 							<li><a href="StockMove">Stock Move</a></li>
-							<li><a href="StockInventory">Stock Inventory</a></li>
+							<li><a href="StockInventory">Inventory Stock Status</a></li>
 							<li><a href="StockAdjustment">Inventory Adjustments</a></li>
 						</ul> <!-- /.nav-second-level --></li>
 					<!-- Category Management -->

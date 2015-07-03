@@ -31,11 +31,13 @@ import com.j2ee.java.model.bo.ProductBO;
 import com.j2ee.java.model.bo.ProductTypeBO;
 import com.j2ee.java.model.bo.ProductUnitBO;
 import com.j2ee.java.model.bo.ProviderBO;
+import com.j2ee.java.model.bo.Utils;
 import com.j2ee.java.model.dto.Manufacture;
 import com.j2ee.java.model.dto.Product;
 import com.j2ee.java.model.dto.ProductType;
 import com.j2ee.java.model.dto.ProductUnit;
 import com.j2ee.java.model.dto.Provider;
+import com.j2ee.java.report.ProductReportBO;
 
 /**
  * Handles requests for the application home page.
@@ -128,6 +130,9 @@ public class ProductManageController {
 	@Autowired
 	@Qualifier("ProductTypeBOImpl")
 	private ProductTypeBO productTypeBO;
+	
+	@Autowired
+	private ProductReportBO productReportBO; 
 
 	@Autowired
 	@Qualifier("ProductUnitBOImpl")
@@ -147,10 +152,11 @@ public class ProductManageController {
 
 		logger.info("Exporting Product!");
 
-		final String fileName = "E:\\C1_report.pdf";
-		final String reportPath = "E:\\j2ee_backUp_001\\src\\main\\resources\\demo.jrxml";
+		final String fileName = Utils.LINK_REPORT_OUTPUT + "ProductList.pdf";
+		final String reportPath = Utils.LINK_REPORT_RESOURCE + "product.jrxml";
+		
 		try {
-			new com.j2ee.java.report.ProductReportBO().runReport(reportPath,
+			productReportBO.runReport(reportPath,
 					fileName);
 
 			File reportFile = new File(fileName);

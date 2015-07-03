@@ -1,7 +1,5 @@
 package com.j2ee.java.report;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,9 +31,7 @@ public class StockOutwardReportBO {
 	private StockOutwardBO sOutwardBO;
 	
 	private Map<String, Object> params = new HashMap<String, Object>();
-	private Date date = new Date();
-	private SimpleDateFormat dateFormat = new SimpleDateFormat(
-			"dd-MM-YY:HH.mm.ss");
+	
 	static SessionFactory session = HibernateUtil.getSessionFactory();
 
 	public Session getOpenSession() {

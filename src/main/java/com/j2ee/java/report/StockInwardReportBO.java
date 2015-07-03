@@ -1,7 +1,5 @@
 package com.j2ee.java.report;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,10 +20,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.j2ee.java.model.bo.StockInwardBO;
-import com.j2ee.java.model.bo.StockOutwardBO;
 import com.j2ee.java.model.dao.HibernateUtil;
 import com.j2ee.java.model.dto.StockInward;
-import com.j2ee.java.model.dto.StockOutward;
 
 @Component
 public class StockInwardReportBO {
@@ -35,9 +31,6 @@ public class StockInwardReportBO {
 	private StockInwardBO sInwardBO;
 	
 	private Map<String, Object> params = new HashMap<String, Object>();
-	private Date date = new Date();
-	private SimpleDateFormat dateFormat = new SimpleDateFormat(
-			"dd-MM-YY:HH.mm.ss");
 	static SessionFactory session = HibernateUtil.getSessionFactory();
 
 	public Session getOpenSession() {

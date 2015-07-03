@@ -452,9 +452,9 @@ public class StockMoveController {
 				JsonObject.class);
 
 		// get staff object
-		 Staff staff = new Staff(); 
-		 staff = staffBO.getByID(1);
-		 stTranfer.setStaffID(staff);
+		Staff staff = new Staff();
+		staff = staffBO.getByID(1);
+		stTranfer.setStaffID(staff);
 
 		// get Reference Type
 		stTranfer.setStatusID(statusID);
@@ -547,7 +547,7 @@ public class StockMoveController {
 
 	// export stock transfer bill
 	@RequestMapping(value = "/exportTransfer")
-	public ModelAndView exportProduct(HttpServletRequest request,
+	public ModelAndView exportTransfer(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		String reportIDReq = request.getParameter("currentTransferID");
@@ -558,8 +558,10 @@ public class StockMoveController {
 			return null;
 		}
 
-		final String fileName = "E:\\stockTransfer.pdf";
-		final String reportPath = "E:\\j2ee_backUp_001\\src\\main\\resources\\stockMove.jrxml";
+		final String fileName = Utils.LINK_REPORT_OUTPUT
+				+ "StockTransferBill.pdf";
+		final String reportPath = Utils.LINK_REPORT_RESOURCE
+				+ "stockMove.jrxml";
 		try {
 			if (reportID > 0) {
 				stTransferReportBO.runReport(reportPath, fileName, reportID);

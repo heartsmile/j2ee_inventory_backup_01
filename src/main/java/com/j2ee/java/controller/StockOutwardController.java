@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.j2ee.java.model.bo.CustomerBO;
 import com.j2ee.java.model.bo.StockBO;
 import com.j2ee.java.model.bo.StockOutwardBO;
+import com.j2ee.java.model.bo.Utils;
 import com.j2ee.java.model.dto.Customer;
 import com.j2ee.java.model.dto.Stock;
 import com.j2ee.java.report.StockOutwardReportBO;
@@ -84,7 +85,7 @@ public class StockOutwardController {
 	}
 
 	@RequestMapping(value = "/exportOutward")
-	public ModelAndView exportProduct(HttpServletRequest request,
+	public ModelAndView exportOutward(HttpServletRequest request,
 			HttpServletResponse response) {
 
 		String reportIDReq = request.getParameter("currentOutwardID");
@@ -93,8 +94,8 @@ public class StockOutwardController {
 			reportID = Integer.parseInt(reportIDReq);
 		}
 
-		final String fileName = "E:\\stockOutward.pdf";
-		final String reportPath = "E:\\j2ee_backUp_001\\src\\main\\resources\\stockOutward.jrxml";
+		final String fileName = Utils.LINK_REPORT_OUTPUT + "StockOutwardBill.pdf";
+		final String reportPath = Utils.LINK_REPORT_RESOURCE + "stockOutward.jrxml";
 		try {
 			if (reportID > 0) {
 				stOutReportBO.runReport(reportPath, fileName, reportID);

@@ -2,7 +2,20 @@
  * @author: thaint
  */
 
+var currentOutwardID;
+
 $(document).ready(function() {
+	
+	//get current stock outward id
+	currentOutwardID = $("#billNo").val();
+	
+	//disable btn export
+	$("#exportOutward").prop("disabled", true);
+	
+	$("#exportOutward").click(function(){
+		window.location = "exportOutward?currentOutwardID=" + currentOutwardID;
+	});
+	
 	var i = $('#tbData tr').length;
 	calculateTotal();
 	//deletes the selected table rows
@@ -177,9 +190,15 @@ $(document).ready(function() {
 					dialog.realize();
 					var btnOk = dialog.getButton('btn-ok');
 					btnOk.click(function(event){
-						location.reload(true);
+						//location.reload(true);
+						dialog.close();
+						//enable btn export
+						$( "#exportOutward" ).prop( "disabled", false );
 			        });
 					dialog.open();
+					
+					//enable btn export
+					$( "#exportOutward" ).prop( "disabled", false );
 				}
 				else {
 					var dialogError = new BootstrapDialog({
